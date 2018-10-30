@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './shared/services/authentication.service';
+import { SnotifyService } from 'ng-snotify';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MSRassignement';
+  constructor(private auth: AuthenticationService, snotify: SnotifyService){
+    this.auth.autoAuthUser();
+  }
 }

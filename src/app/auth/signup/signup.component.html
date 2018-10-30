@@ -1,0 +1,93 @@
+<section class="login-bg">
+	<div class="container">
+		<div class="row ptb-100">
+			<div class="col-md-6 m-auto">
+				<div>
+				<h3 >Signup</h3>
+				<hr>
+				<form class="form-style" [formGroup]="signupForm" (ngSubmit)="createUser()"> 
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>First Name <span style="color: red;">*</span></label>
+								<input type="text" formControlName="firstname" class="form-control" placeholder="First Name">
+							<div *ngIf="getControls.firstname.errors && (getControls.firstname.touched)">
+									<label class="label-error" *ngIf="getControls.firstname.errors.required">First Name is required</label>
+								</div>
+							</div>
+						</div>	
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Last Name <span style="color: red;">*</span> </label>
+								<input type="text" formControlName="lastname" class="form-control" placeholder="Last Name">
+							</div>
+							<div *ngIf="getControls.lastname.errors && (getControls.lastname.touched)">
+								<label class="label-error" *ngIf="getControls.lastname.errors.required">Last Name is required</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Phone </label>
+						<input type="text" formControlName="phone" class="form-control" placeholder="Phone">
+					</div>
+					<div class="form-group">
+						<label>Email <span style="color: red;">*</span></label>
+						<input type="email" formControlName="email" class="form-control" placeholder="Email" uniqueEmail>
+					<div *ngIf="getControls.email.errors && (getControls.email.touched)">
+							<label class="label-error" *ngIf="getControls.email.errors.required">Email is required</label>
+							<label class="label-error" *ngIf="getControls.email.errors.email">Email is invalid</label>
+							<label class="label-error" *ngIf="getControls.email.errors.uniqueEmail">Email is already taken</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Password <span style="color: red;">*</span></label>
+								<input type="Password" formControlName="password" class="form-control" placeholder="Password">
+							<div *ngIf="getControls.password.errors && (getControls.password.touched)">
+								<label class="label-error" *ngIf="getControls.password.errors.required">Password is required</label>
+								<label class="label-error" *ngIf="getControls.password.errors.minlength">Password must be atleast 6 characters</label>
+							</div>
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Re-enter password <span style="color: red;">*</span></label>
+								<input type="password" formControlName="passwordConfirmation" class="form-control" placeholder="Password Confirmation">
+							<div *ngIf="getControls.passwordConfirmation.errors && (getControls.passwordConfirmation.touched)">
+								<label class="label-error" *ngIf="getControls.passwordConfirmation.errors.required">Password is required</label>
+								<label class="label-error" *ngIf="getControls.passwordConfirmation.errors.notEqual">Password and password confirmation does not match</label>
+							</div>
+							</div>
+						</div>
+						<div class="col-md-6"> 
+							<div class="form-group">
+								<input type="radio" formControlName="role" value="user" > User<br>
+							</div>
+						</div>
+						<div class="col-md-6"> 
+							<div class="form-group">
+								<input type="radio" formControlName="role" value="admin" > Admin<br>
+							</div>
+						</div>
+
+
+					</div>
+					<div class="form-group mt-2">
+						<button type="submit" class="btn btn-info btn-style" [disabled]="!signupForm.valid">Signup</button>
+					</div>
+					<hr>
+					<div class="text-center">
+						<p>Already have an account? <a routerLink="/login">Login</a></p>
+					</div>
+				</form>
+
+
+			</div>
+			</div>
+		</div>
+	</div>
+</section>

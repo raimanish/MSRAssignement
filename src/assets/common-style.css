@@ -1,0 +1,68 @@
+
+@import "../../node_modules/ng-snotify/styles/material.css";
+
+/*Border*/
+.bt-1{
+	border-top: 1px solid #ccc;
+}
+.ptb-100{
+	padding-top: 100px;
+	padding-bottom:100px;
+}
+/*Fonts*/
+.font12{
+	font-size: 12px;
+}
+.font24{
+	font-size: 24px;
+}
+.font70{
+	font-size: 70px;
+}
+.lr-0{
+	left: 0;
+	right: 0;
+}
+.w-100{
+	width: 100%;
+}
+.cursor-pointer{
+	cursor: pointer;
+}
+
+
+.mt-10{
+	margin-top: 10px;
+}
+
+.mr-5{
+	margin-left: 5px;
+}
+
+/*error label*/
+.label-error{
+	font-size: 11px;
+	font-weight: 500;
+	color: #f35e5e;
+	position: absolute;
+}
+
+label{
+	margin-bottom: 0;
+	font-size: 14px;
+}
+
+.login-bg{
+	background-image: url('images/gift_bg.png');
+	background-size: cover;
+    background-position: center;
+}
+
+.fb-color{
+	background: #3B5998;
+}
+
+.g-color{
+	background: #D34836;
+}
+

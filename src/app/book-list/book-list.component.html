@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row mt-10">
+    <div class="col-md-6">
+        <h2>Books </h2>
+    </div>
+    <div class="col-md-2">
+      <input [(ngModel)]="search" placeholder="search text goes here">
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <button *ngIf="userRole == 'admin'" class="btn btn-xs btn-success pull-right" [routerLink]="['/book-create']"> Add New</button>
+    </div>
+  </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Available</th>
+        <th *ngIf="userRole=='admin'"> Action</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="books.length > 0">
+      <tr *ngFor="let book of books| filter : search | paginate: { itemsPerPage: booksPerPage, currentPage: currentPage,totalItems: totalBooks }">
+        <td>{{book.name}}</td>
+        <td>{{book.available == true ? 'Yes' : 'No'}}</td>
+        <td  *ngIf="userRole=='admin'"><button class="btn btn-xs btn-danger" (click)="onDeleteBook(book.id)"> Delete</button>
+          <button class="btn btn-xs btn-primary ml-5" [routerLink]="['/book-create',book.id,'edit']"> Update</button>
+        </td>
+      </tr>
+    </tbody>
+    <tr *ngIf="books.length == 0">
+      <td *ngIf="userRole=='user'" colspan="2" >
+        No Reecord Found
+      </td>
+      <td *ngIf="userRole=='admin'" colspan="3" >
+          No Reecord Found
+        </td>
+    </tr>
+  </table>
+  <pagination-controls *ngIf="books.length > 0" (pageChange)="pageChanged($event)"></pagination-controls>
+
+</div>
+

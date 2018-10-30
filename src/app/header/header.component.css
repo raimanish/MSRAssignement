@@ -1,0 +1,35 @@
+nav{
+    background: rgba(255, 255, 255, 0.9) !important;
+    z-index: 99;
+    box-shadow: 0 0 13px -2px #000;
+}
+.hover-none:hover{
+	background: unset !important;
+}
+.navbar-right li.active a{
+	background: unset !important;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}

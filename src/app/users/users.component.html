@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="row mt-10">
+        <div class="col-md-6">
+            <h2>Users </h2>
+        </div>
+        <div class="col-md-2">
+          <input [(ngModel)]="search" placeholder="search text goes here">
+        </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th> Email</th>
+          <th>Phone</th>
+          <th> Created At</th>
+          <th> Last Sign in</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | filter : search  | paginate: { itemsPerPage: usersPerPage, currentPage: currentPage,totalItems: totalUsers }">
+          <td>{{user.firstname}}</td>
+          <td>{{user.lastname}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.createdAt | date: 'dd/MM/yyyy'}}</td>
+          <td>{{user.lastSignIn | date: 'dd/MM/yyyy'}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+  </div>
+  
+      
